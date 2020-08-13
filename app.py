@@ -1,8 +1,8 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template
 from flask_pymongo import PyMongo
 if os.path.exists("env.py"):
-    import env
+    import env as config
 
 
 # creates an instance of flask and assign it to the app variable

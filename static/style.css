@@ -1,6 +1,11 @@
 p {
-    padding: 5em;
+    padding-top:10em;
 }
-.appear {
+.container{
+    padding-top:5em;
+}
+.menu-bar{
+    padding-bottom:5em;
     
+
 }

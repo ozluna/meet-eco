@@ -16,3 +16,9 @@ function scrollFunction() {
 $('.navbar-toggler-icon').click(function() {
     $('.navbar').toggleClass('bg-white');
 })
+
+/** date picker initilazitaion  */
+
+ $(document).ready(function(){
+                $('.datepicker').datepicker();
+            });

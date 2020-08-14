@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block content %}
+<h1>Create a new event</h1>
+
+ <div class="container">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">account_box</i>
+            <input id="organiser_name" type="text" name="organiser_name" data-length="10">
+            <label for="organiser_name">Organiser Name </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">text_snippet</i>
+            <textarea id="event_description" name="event_description" class="materialize-textarea" data-length="120"></textarea>
+            <label for="event_description">Event Description</label>
+          </div>
+        </div>
+        <div class="row">
+            <div class="input-field s6" id="calendar">
+                <i class="material-icons prefix">event</i>
+                <input type="text" id="event_date" name="event_name" class="datepicker">            
+            </div>
+        </div>
+      </form>
+    </div>
+    <script>  
+     
+  
+  </script>
+{%endblock%}

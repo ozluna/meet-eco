@@ -1,22 +1,24 @@
 {% extends 'base.html'%}
 
 {% block content %}
-
-    <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/office.jpg">
+    <div class="container col-4">
+    {% for event in events %}
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="static/images/Garage sale.PNG">
+            </div>
+            <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{event.event_name}}<i class="material-icons right">more_vert</i></span>
+            <p><a href="#"><i class="material-icons left">create</i> </a></p>
+            </div>
+            <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+                <p> 
+                    {{event.event_description}}
+                </p>
+        </div>
     </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
-      <p><a href="#">This is a link</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-      <p> {% for event in events %}
-        {{event.organiser_name}}
-        {{event.event_name}}
-        {% endfor %}</p>
-    </div>
+    {% endfor %}
   </div>
          
      <p>  

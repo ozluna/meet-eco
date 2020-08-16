@@ -1,8 +1,8 @@
+import env as config
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
-if os.path.exists("env.py"):
-    import env as config
+from bson.objectid import ObjectId
 
 
 # creates an instance of flask and assign it to the app variable
@@ -31,7 +31,13 @@ def create_evet():
 def insert_event():
     event = mongo.db.events
     event.insert_one(request.form.to_dict())
-    return redirect(url_for('index.html'))
+    return redirect(url_for('index'))
+
+
+@app.route("/edit_event/<event_id>")
+def edit_event(event_id):
+    edited_event = mongo.db.events.find_one({"_id": ObjectId(event_id)})
+    return render_template("editevent.html", event=edited_event)
 
 
 if __name__ == "__main__":

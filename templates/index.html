@@ -1,7 +1,8 @@
 {% extends 'base.html'%}
 
 {% block content %}
-    <div class="container col-4">
+
+    <div class="container col-lg-3">
     {% for event in events %}
         <div class="card">
             <div class="card-image waves-effect waves-block waves-light">
@@ -9,17 +10,19 @@
             </div>
             <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">{{event.event_name}}<i class="material-icons right">more_vert</i></span>
-            <p><a href="#"><i class="material-icons left">create</i> </a></p>
+            <p><a href="{{url_for('edit_event', event_id= event._id)}}"><i class="material-icons left">create</i> </a></p>
             </div>
             <div class="card-reveal">
             <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
                 <p> 
+                
                     {{event.event_description}}
                 </p>
         </div>
     </div>
-    {% endfor %}
+   {% endfor %}
   </div>
+   
          
      <p>  
      </p>

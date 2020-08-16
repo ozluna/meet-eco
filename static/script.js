@@ -19,6 +19,20 @@ $('.navbar-toggler-icon').click(function() {
 
 /** date picker initilazitaion  */
 
- $(document).ready(function(){
-                $('.datepicker').datepicker();
-            });
+$(document).ready(function(){
+    $('.datepicker').datepicker({
+        electMonths: true, // Creates a dropdown to control month
+            selectYears: 15, // Creates a dropdown of 15 years to control year,
+            today: 'Today',
+            clear: 'Clear',
+            close: 'Ok',
+            closeOnSelect: false // Close upon selecting a date,
+
+    });
+  });
+    
+  /**Changing the date */
+   $(document).ready(function(){
+            event_date = Date.parse('{{event.event_date}}');
+            $('#event_date').pickadate('picker').set('select', event_date, {format:'dd/mm/yyyy'}).trigger('change')
+        }) 

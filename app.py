@@ -40,6 +40,25 @@ def edit_event(event_id):
     return render_template("editevent.html", event=edited_event)
 
 
+@app.route('/update_event/<event_id>', methods=['POST'])
+def update_event(event_id):
+    event = mongo.db.events
+    event.update({'_id': ObjectId(event_id)},
+    {
+        'event_name': request.form.get('event_name'),
+        'event_description': request.form.get('event_description'),
+        'event_date': request.form.get('event_date'),
+        'places': request.form.get('places')
+    })
+    return redirect(url_for('index'))
+
+
+@app.route('/remove_event/<event_id>')
+def remove_event(event_id):
+    mongo.db.events.remove({'_id': ObjectId(event_id)})
+    return redirect(url_for('index'))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),

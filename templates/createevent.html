@@ -3,12 +3,21 @@
 <h1>Create a new event</h1>
 
  <div class="container">
-      <form class="col s12">
+      <form class="col s12" action="{{url_for('insert_event')}}"  method="POST" >
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">account_box</i>
             <input id="organiser_name" type="text" name="organiser_name" data-length="10">
             <label for="organiser_name">Organiser Name </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <span style="font-size: 2em; color:#9bae99;" class="prefix">
+                <i class="fas fa-leaf"></i>
+                </span>
+            <input id="event_name" type="text" name="event_name" data-length="10">
+            <label for="event_name">Event Name </label>
           </div>
         </div>
         <div class="row">
@@ -20,14 +29,26 @@
         </div>
         <div class="row">
             <div class="input-field s6" id="calendar">
-                <i class="material-icons prefix">event</i>
-                <input type="text" id="event_date" name="event_name" class="datepicker">            
+                <i class="material-icons prefix">events</i>
+                <input type="text" id="event_date" name="event_name" class="datepicker">  
+                <label for="event_date">Event Date</label>          
             </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+            <i class="material-icons prefix">location_on</i>
+            <input id="event_place" type="text" name="event_place" data-length="10">
+            <label for="event_place">Where the event will be hold? </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s6">
+          
+          <button class="waves-effect waves-light btn" type="submit" name="action">Create Event <i class="material-icons left">add</i> </button>          
+           
+          </div>
         </div>
       </form>
     </div>
-    <script>  
-     
-  
-  </script>
+   
 {%endblock%}

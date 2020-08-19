@@ -2,24 +2,49 @@
 
 {% block content %}
 
-    <div class="container col-lg-3">
+    <div class="row">
+    
     {% for event in events %}
-        <div class="card">
-            <div class="card-image waves-effect waves-block waves-light">
-            <img class="activator" src="static/images/Garage sale.PNG">
+    
+            
+            <div class="card col-lg-4">
+            
+             
+            <div class="card-image waves-effect waves-block waves-light">         
+            {%for cat in event_categories%}
+              {%if cat.event_name == event.event_name%}                    
+                <img class="activator" src="{{url_for('static', filename = cat.event_pic)}}">       
+                
+                {%endif %}
+             {% endfor %}
+
+                      
             </div>
             <div class="card-content">
             <span class="card-title activator grey-text text-darken-4">{{event.event_name}}<i class="material-icons right">more_vert</i></span>
             <p><a href="{{url_for('edit_event', event_id= event._id)}}"><i class="material-icons left">create</i> </a></p>
+            <!-- put a counter for the people who are interested with the event-->
+            <button id="clickme" value="Count me in" class="btn-floating btn-large waves-effect waves-light red right"> <i class="material-icons">add</i></button>
             </div>
             <div class="card-reveal">
             <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
-                <p> 
-                
-                    {{event.event_description}}
+                <p>
+                    {{event.event_description}}  
                 </p>
+                <p>
+                    {{event.event_place}}
+                </p> 
+                <p>
+                    {{event.event_date}}                       
+                </p>    
+                <p id= "guests">
+                
+                </p>
+                
         </div>
     </div>
+   
+   
    {% endfor %}
   </div>
    

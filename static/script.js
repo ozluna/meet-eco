@@ -36,3 +36,17 @@ $(document).ready(function(){
             event_date = Date.parse('{{event.event_date}}');
             $('#event_date').pickadate('picker').set('select', event_date, {format:'dd/mm/yyyy'}).trigger('change')
         }) 
+
+/** event_category selection */
+
+  $(document).ready(function(){
+    $('select').formSelect();
+  })
+
+  /** guest number */
+    const count = 0;
+
+    document.getElementById("clickme").onclick = function() {
+    count += 1;
+    $('#guests').innerHTML = count + "people are interested";
+    };

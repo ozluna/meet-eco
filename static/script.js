@@ -43,10 +43,24 @@ $(document).ready(function(){
     $('select').formSelect();
   })
 
-  /** guest number */
-    const count = 0;
-
-    document.getElementById("clickme").onclick = function() {
+  // create guest counter
+    var count = 0;
+    
+    function counter(){
+          
     count += 1;
-    $('#guests').innerHTML = count + "people are interested";
-    };
+    let guest = document.getElementById('guests') 
+    guest.innerHTML = count + "people are interested";
+    
+       }
+
+    //modal button trigger 
+$('#attender').on('shown.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  var modal = $(this)
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body input').val(recipient)
+})

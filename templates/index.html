@@ -31,7 +31,7 @@
             
              <!-- this will add picture for every event -->
             <div class="card-image waves-effect waves-block waves-light"> 
-            <p>{{event_categories}}</p>        
+                   
             {%for cat in event_categories%}
                 {%if cat.event_name == event.event_name%}                    
                     <img class="activator" src="{{url_for('static', filename = cat.event_pic)}}">                   
@@ -46,14 +46,13 @@
             <!-- put a counter for the people who are interested with the event asking their email address and name
                 -->
              <!-- Button trigger modal -->
-            <button type="button" class="waves-effect waves-light btn btn-floating btn-large right" data-toggle="modal" data-target="#attender" id="mybutton"  onclick="counter()">
+            <button type="button" class="waves-effect waves-light btn btn-floating btn-large right" data-toggle="modal" data-target="#attender" id="mybutton">
              <i class="material-icons">add_circle_outline</i> Join
             </button>
 
          
             
-        </div>
-           
+        </div>           
             
            
             <div class="card-reveal">
@@ -65,52 +64,48 @@
                     {{event.event_place}}
                 </p> 
                 <p>
-                    {{event.event_date}}                       
+                    {{event.event_date}}    
+                    {{event._id}}                   
                 </p>    
                 <p id= "guests">
-                
-                
-                {%for email in event.people_interested %}
-                <li>{{email}}</li>
-                {%endfor %}
-                
+                {{event.guests|length}} people are interested with this event                
                 </p>
-                
+                {{event._id}}
         </div>
-    </div>
-    
-   
-
-   {% endfor %}
+    </div>    
             <!-- Modal -->
-            <div class="modal fade" id="attender" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <form action="{{url_for('insert_attenders', event_id = attenders._id)}}"  method="POST">
-                        <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                        </div>
+            {{event._id}}            
+    <div class="modal fade" id="attender" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        {{event._id}}
+        <div class="modal-dialog modal-dialog-centered" role="document">                
+            <form action="{{url_for('insert_attender', event_id= event._id)}}" method="POST">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <p>{{event._id}}</p>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal Title</h5>
+                    </div>
                         <!--take attenders details so you can count how many people are interested-->
-                            <div class="row mx-auto">
+                    <div class="row mx-auto">                                
+                        <input type="text" placeholder="First name" name="fname" id="fname">
+                        <input type="text" placeholder="Last Name" name="lname" id="lname">
+                        <input type="text" placeholder="Email" name="email" id="email">                            
                                 
-                                <input type="text" value="First name" name="fname" id="fname">
-                                <input type="text" value="Last Name" name="lname" id="lname">
-                                <input type="text" value="Email" name="email" id="email">                            
-                                
-                            </div>   
-                                                
+                    </div>                                                
                         
-                        <div class="modal-body">
+                    <div class="modal-body">
                             ...
-                        </div>
-                        <div class="modal-footer">
+                    </div>
+                    <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                             <button name="action" type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+                        
+            </form>
+                    
+        </div>
+    </div>            
+    {% endfor %}  
          
      <p>  
      </p>

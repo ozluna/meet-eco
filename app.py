@@ -21,9 +21,7 @@ mongo = PyMongo(app)
 def index():
     ca = list(mongo.db.event_categories.find())
     the_event = list(mongo.db.events.find())
-    guest = mongo.db.attenders.find()
-    return render_template("index.html",
-                    events=the_event, event_categories=ca, attenders=guest)
+    return render_template("index.html", events=the_event, event_categories=ca)
 
 
 @app.route("/create_event")
@@ -43,14 +41,14 @@ def edit_event(event_id):
     events = mongo.db.events.find_one({"_id": ObjectId(event_id)})
     cats = mongo.db.event_categories.find()
     return render_template("editevent.html",
-                            event=events, event_categories=cats)
+                           event=events, event_categories=cats)
 
 
 @app.route('/update_event/<event_id>', methods=['POST'])
 def update_event(event_id):
     event = mongo.db.events
     event.update({'_id': ObjectId(event_id)},
-    {        
+                 {
         'event_name': request.form.get('event_name'),
         'event_description': request.form.get('event_description'),
         'event_date': request.form.get('event_date'),
@@ -66,11 +64,19 @@ def remove_event(event_id):
     return redirect(url_for('index'))
 
 
-@app.route('/insert_attenders/<event_id>', methods=['POST'])
-def insert_attenders(event_id):
-    guest = mongo.db.attenders.find({'_id': ObjectId(event_id)})
-    guest.insert_one(request.form.to_dict())
-    return render_template('index.html', attenders=guest)
+@app.route('/insert_attender/<event_id>', methods=['POST'])
+def insert_attender(event_id):
+    event = mongo.db.events
+    event.update({'_id': ObjectId(event_id)},
+                 {'$addToSet': {
+                    "guests": {
+                        'fname': request.form.get('fname'),
+                        'lname': request.form.get('lname'),
+                        'email': request.form.get('email')
+                    }
+                 }})
+    the_event = mongo.db.events.find_one({'_id': ObjectId(event_id)})
+    return render_template('index.html', the_event=the_event)
 
 
 if __name__ == "__main__":

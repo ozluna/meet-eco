@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block content %}
+
+    <div class="modal fade" id="eventKey" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">               
+          
+                <div class="modal-content">
+                    <div class="modal-header">
+                        
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal Title</h5>
+                    </div>
+                        
+                                                            
+                        
+                    <div class="modal-body">
+                        Dear {{organiser}}<br>
+                        You have succefully created the event.<br>
+                        To access to edit or delete your event please note your id number somewhere safe.<br>
+                        This is your Id number:  {{eventId}}
+                           
+                    </div>
+                    <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" > <a href="{{url_for('index')}}">Close</a> </button>                            
+                    </div>
+                </div>                        
+            
+                    
+        </div>
+    </div>   
+
+
+{%endblock%}

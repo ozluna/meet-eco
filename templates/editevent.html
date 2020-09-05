@@ -13,8 +13,12 @@
                 <select id="event_name" name="event_name">
                     <option value="" disabled selected>Choose an event</option>
                     {% for cat in event_categories %}
-                        <option value="{{cat.event_name}}">{{cat.event_name}}</option>                       
-                                                
+                        {% if cat.event_name ==  event.event_name %}
+                            <option value="{{cat.event_name}}" selected>{{cat.event_name}}</option>
+                        {% else %}
+                            <option value="{{cat.event_name}}">{{cat.event_name}}</option>
+                        {% endif %}
+                    
                     {% endfor %}
                     </select>
                         <label>Event categories</label>
@@ -24,7 +28,7 @@
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">account_box</i>
-            <input id="organiser_name" type="text" name="organiser_name" data-length="10" value="{{event.organiser_name}}">
+            <input class="form-control form-valid"  id="organiser_name" type="text" name="organiser_name" data-length="10" value="{{event.organiser_name}}">
             <label for="organiser_name">Organiser Name </label>
           </div>
         </div>        
@@ -45,7 +49,7 @@
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">location_on</i>
-            <input id="event_place" type="text" name="event_place" data-length="10">
+            <input class="form-control form-valid"  id="event_place" type="text" name="event_place" data-length="10">
             <label for="event_place">Where the event will be hold? </label>
           </div>
         </div>

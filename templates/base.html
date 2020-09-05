@@ -15,7 +15,7 @@
       <div class="row m-0">
       <!--website logo and navbar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-          <a class="navbar-brand" id="logo" href="index.html">MeetEco</a>
+          <a class="navbar-brand" id="logo" href="{{url_for('index')}}">MeetEco</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false"  aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -25,10 +25,13 @@
                 <a class="nav-link" href="{{url_for('index')}}">Home </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#cuisine">How it works</a>
+                <a class="nav-link" href="{{url_for('index')}}#howitworks">How it works</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#contact-me">See the events</a>
+                <a class="nav-link" href="{{url_for('index')}}#seeEvents">See the events</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="{{url_for('create_event')}}">Create an event </a>
               </li>
             </ul>
             <span class="navbar-text"> </span>
@@ -36,9 +39,35 @@
         </nav>
       </div>
     </header>
+    
     {%block content%}
     {%endblock%}
-
+    <footer class="page-footer">
+            <div class="container">
+                <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Footer Content</h5>
+                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                © 2020 Copyright OzgeOnel
+                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+            </div>
+    </footer>
+    
 <script
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
       integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"

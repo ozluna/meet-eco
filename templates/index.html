@@ -1,3 +1,6 @@
+
+    
+
 {% extends 'base.html'%}
 
 {% block content %}
@@ -7,27 +10,31 @@
     <img  src="{{url_for('static', filename='images/World.jpg')}}" alt="landing image">
     </div>
     <div class="col-6">
-    <h1> 
+    <h2> 
         Create your own event 
-    </h1>
-    <h1> Gather people for a purpose.</h1>
-    <h1> Help the world</h1>
+    </h2>
+    <h2> Gather people for a purpose.</h2>
+    <h2> Help the world</h2>
     </div>
     
  </div>
  <!-- Giving the information about the website how it works section-->
-<section>
-<div class="container">
-    <h1></h1>
-    <p></p>
-</div>
-
-</section>                   
-<div class="row mx-auto text-center">
+<div class=" row m-0 how-it-works" id="howitworks">
+    <div class="col-lg-6 col-md-6 col-sm-12" >
+        <h3>Do you want to meet people to save the environment?</h3>
+        <p> Here there are some events for you if you are interested any event just join</p>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-12">
+        <h3> Are you planing to have your own event? </h3>
+        <p> You can start your Eco event with create an event option </p>
+        <p>  </p>
+    </div>
+</div>                   
+<div class="row mx-auto text-center" id="seeEvents">
     {% for event in events %}
     
             
-            <div class="card col-lg-4">
+        <div class="card sticky-action col-lg-4">
             
              <!-- this will add picture for every event -->
             <div class="card-image waves-effect waves-block waves-light"> 
@@ -36,27 +43,28 @@
                 {%if cat.event_name == event.event_name%}                    
                     <img class="activator" src="{{url_for('static', filename = cat.event_pic)}}">                   
                 {%endif %}
-             {% endfor %}
+            {% endfor %}
 
                       
             </div>
             <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">{{event.event_name}}<i class="material-icons right">more_vert</i></span>
-            <p><a href="{{url_for('edit_event', event_id= event._id)}}"><i class="material-icons left">create</i> </a></p>
-            <!-- put a counter for the people who are interested with the event asking their email address and name
-                -->
-             <!-- Button trigger modal -->
-            <button type="button" class="waves-effect waves-light btn btn-floating btn-large right" data-toggle="modal" data-target="#attender" id="mybutton">
-             <i class="material-icons">add_circle_outline</i> Join
-            </button>
-
-         
+                <span class="card-title activator grey-text text-darken-4">Click for more information<i class="material-icons right">more_vert</i></span>
+               
+            </div> 
+            <div class="card-footer">
+                <button type="button" class="waves-effect waves-light btn-large left" data-toggle="modal" data-target="#editevent{{event._id}}" > Edit This Event<i class="material-icons left">create</i></button>
+                
+                <!-- put a counter for the people who are interested with the event asking their email address and name
+                    -->
+                <!-- Button trigger modal -->
+                <button type="button" class="waves-effect waves-light btn-large right" data-toggle="modal" data-target="#attender{{event._id}}" id="mybutton">
+                <i class="material-icons left">exposure_plus_1</i> Join the event
+            </button>         
             
-        </div>           
-            
+            </div>        
            
-            <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"><i class="material-icons right">close</i></span>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"> {{event.event_name}}<i class="material-icons right">close</i></span>
                 <p>
                     {{event.event_description}}  
                 </p>
@@ -65,35 +73,34 @@
                 </p> 
                 <p>
                     {{event.event_date}}    
-                    {{event._id}}                   
+                                     
                 </p>    
                 <p id= "guests">
                 {{event.guests|length}} people are interested with this event                
                 </p>
-                {{event._id}}
+                
         </div>
     </div>    
-            <!-- Modal -->
-            {{event._id}}            
-    <div class="modal fade" id="attender" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        {{event._id}}
+            <!-- Modal for getting attender details -->
+                        
+    <div class="modal fade" id="attender{{event._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    
         <div class="modal-dialog modal-dialog-centered" role="document">                
             <form action="{{url_for('insert_attender', event_id= event._id)}}" method="POST">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <p>{{event._id}}</p>
+                    <div class="modal-header">                        
                         <h5 class="modal-title" id="exampleModalLongTitle">Modal Title</h5>
                     </div>
                         <!--take attenders details so you can count how many people are interested-->
                     <div class="row mx-auto">                                
-                        <input type="text" placeholder="First name" name="fname" id="fname">
-                        <input type="text" placeholder="Last Name" name="lname" id="lname">
-                        <input type="text" placeholder="Email" name="email" id="email">                            
+                        <input type="text" class="form-control form-valid" placeholder="First name" name="fname" id="fname" required>
+                        <input type="text" class="form-control form-valid" placeholder="Last Name" name="lname" id="lname" required>
+                        <input type="text" class="form-control form-valid" placeholder="Email" name="email" id="email" required>                            
                                 
                     </div>                                                
                         
                     <div class="modal-body">
-                            ...
+                           Please provide your details to join this event.
                     </div>
                     <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -104,11 +111,36 @@
             </form>
                     
         </div>
-    </div>            
-    {% endfor %}  
-         
-     <p>  
-     </p>
-
-   
+    </div> 
+    <!--edit button id checking-->
+    <div class="modal fade" id="editevent{{event._id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+            <div class="modal-header">enter your provided Id number to edit this event
+                <h5 class="modal-title" id="exampleModalLabel"></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{url_for('edit_event', event_id= event._id)}}" method="POST">
+                <div class="form-group">
+                    <label for="id-number" class="col-form-label">Id Number:</label>
+                    <input type="text" class="form-control" name="id_no" value="{{id_no}}" required>
+                    
+                    <button type="submit" name="action" class="btn btn-primary"> Go to event
+                </button>
+                </div>                
+                </form>
+                
+            </div>
+           
+            </div>
+        </div>
+    </div>    
+           
+    {% endfor %}        
+    
+    
+            
 {%endblock%}

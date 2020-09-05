@@ -6,11 +6,11 @@
       <form class="col s12" action="{{url_for('insert_event')}}"  method="POST" >
         <div class="row">
              
-             <div class="input-field col s6">
+             <div class="input-field col s6 ">
                  <span style="font-size: 2em; color:#9bae99;" class="prefix">
                 <i class="fas fa-leaf"></i>
                 </span>
-                <select id="event_name" name="event_name">
+                <select  id="event_name" name="event_name" required>
                     <option value="" disabled selected>Choose an event</option>
                     {% for cat in event_categories %}
                         <option value="{{cat.event_name}}">{{cat.event_name}}</option>                       
@@ -24,28 +24,28 @@
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">account_box</i>
-            <input id="organiser_name" type="text" name="organiser_name" data-length="10">
+            <input class="form-control form-valid" id="organiser_name" type="text" name="organiser_name" data-length="10" required>
             <label for="organiser_name">Organiser Name </label>
           </div>
         </div>
         <div class="row">
           <div class="input-field col s12">
             <i class="material-icons prefix">text_snippet</i>
-            <textarea id="event_description" name="event_description" class="materialize-textarea" data-length="120"></textarea>
+            <textarea id="event_description" name="event_description" class="materialize-textarea" data-length="120" required></textarea>
             <label for="event_description">Event Description</label>
           </div>
         </div>
         <div class="row">
-            <div class="input-field s6" id="calendar">
+            <div class="input-field s6 " class="form-control form-valid" id="calendar">
                 <i class="material-icons prefix">events</i>
-                <input type="text" id="event_date" name="event_date" class="datepicker">  
+                <input  type="text" id="event_date" name="event_date" class="datepicker" required>  
                 <label for="event_date">Event Date</label>          
             </div>
         </div>
         <div class="row">
           <div class="input-field col s6">
             <i class="material-icons prefix">location_on</i>
-            <input id="event_place" type="text" name="event_place" data-length="10">
+            <input class="form-control form-valid" id="event_place" type="text" name="event_place" data-length="10" required>
             <label for="event_place">Where the event will be hold? </label>
           </div>
         </div>

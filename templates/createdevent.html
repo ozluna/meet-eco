@@ -1,8 +1,33 @@
 {% extends 'base.html'%}
 
 {% block content %}
+    <div class="row mx-auto landing">
+    <div class="col-6">
+        <img  src="{{url_for('static', filename='images/World.jpg')}}" alt="landing image">
+        </div>
+        <div class="col-6">
+        <h2> 
+            Create your own event 
+        </h2>
+        <h2> Gather people for a purpose.</h2>
+        <h2> Help the world</h2>
+        </div>
+        
+    </div>
+    <!-- Giving the information about the website how it works section-->
+    <div class=" row m-0 how-it-works" id="howitworks">
+        <div class="col-lg-6 col-md-6 col-sm-12" >
+            <h3>Do you want to meet people to save the environment?</h3>
+            <p> Here there are some events for you if you are interested any event just join</p>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-12">
+            <h3> Are you planing to have your own event? </h3>
+            <p> You can start your Eco event with create an event option </p>
+            <p>  </p>
+        </div>
+    </div>                   
 
-    <div class="modal fade" id="eventKey" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="eventKey" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered" role="document">               
           
                 <div class="modal-content">

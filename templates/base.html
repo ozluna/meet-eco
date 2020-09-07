@@ -7,8 +7,8 @@
       rel="stylesheet">    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">    
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <title>MeetEco</title>
 </head>
 <body>
    <header class="container-fluid menu-bar">
@@ -38,7 +38,7 @@
           </div>
         </nav>
       </div>
-    </header>
+    </header>    
     
     {%block content%}
     {%endblock%}
@@ -82,7 +82,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
-      <script src="{{url_for('static', filename='script.js')}}"></script>
+      <script src="{{url_for('static', filename='js/script.js')}}"></script>
     <script src="https://kit.fontawesome.com/0344a0dddb.js" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -1,8 +1,9 @@
-import env as config
 import os
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+if os.path.exists("env.py"):
+    import env  # noqa: F401
 
 
 # creates an instance of flask and assign it to the app variable
@@ -25,7 +26,7 @@ def index():
 
 
 @app.route("/create_event")
-def create_evet():
+def create_event():
     event_cat = mongo.db.event_categories.find()
     return render_template("createevent.html", event_categories=event_cat)
 
@@ -33,15 +34,21 @@ def create_evet():
 @app.route("/insert_event", methods=["POST"])
 def insert_event():
     mongo.db.events.insert_one(request.form.to_dict())
-    return redirect(url_for('index'))
+    return redirect(url_for('created_event'))
 
 
-@app.route("/edit_event/<event_id>")
+@app.route("/edit_event/<event_id>", methods=['POST', 'GET'])
 def edit_event(event_id):
-    events = mongo.db.events.find_one({"_id": ObjectId(event_id)})
-    cats = mongo.db.event_categories.find()
-    return render_template("editevent.html",
-                           event=events, event_categories=cats)
+    id_no = request.form.get('id_no')
+    if id_no == event_id:
+        events = mongo.db.events.find_one({"_id": ObjectId(event_id)})
+        cats = mongo.db.event_categories.find()
+        return render_template("editevent.html",
+                               event=events, event_categories=cats,
+                               )
+    else:
+        error = 'Event id you enter is wrong please try again.'
+        return error
 
 
 @app.route('/update_event/<event_id>', methods=['POST'])
@@ -75,8 +82,19 @@ def insert_attender(event_id):
                         'email': request.form.get('email')
                     }
                  }})
-    the_event = mongo.db.events.find_one({'_id': ObjectId(event_id)})
-    return render_template('index.html', the_event=the_event)
+    return redirect(url_for('index'))
+
+
+# grap the id number and print to the screen for the creator so they
+#  can do edit and delete
+@app.route('/created_event')
+def created_event():
+    the_event = mongo.db.events.find({}).sort([('_id', -1)]).limit(1)
+    for event in the_event:
+        eventId = event["_id"]
+        organiser = event["organiser_name"]
+        return render_template('createdevent.html', eventId=eventId,
+                               organiser=organiser)
 
 
 if __name__ == "__main__":

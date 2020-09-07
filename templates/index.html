@@ -6,10 +6,10 @@
 {% block content %}
 <!--Hero image for landing -->
  <div class="row mx-auto landing">
- <div class="col-6">
+ <div class="col-lg-6 col-md-6 d-sm-block d-none">
     <img  src="{{url_for('static', filename='images/World.jpg')}}" alt="landing image">
     </div>
-    <div class="col-6">
+    <div class="col-lg-6 col-md-6 col-sm-12">
     <h2> 
         Create your own event 
     </h2>
@@ -88,8 +88,8 @@
         <div class="modal-dialog modal-dialog-centered" role="document">                
             <form action="{{url_for('insert_attender', event_id= event._id)}}" method="POST">
                 <div class="modal-content">
-                    <div class="modal-header">                        
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal Title</h5>
+                    <div class="modal-header">                       
+                        <h5 class="modal-title" id="exampleModalLongTitle">{{event.event_name}} - {{event.event_date}}</h5>
                     </div>
                         <!--take attenders details so you can count how many people are interested-->
                     <div class="row mx-auto">                                
@@ -116,20 +116,20 @@
     <div class="modal fade" id="editevent{{event._id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-            <div class="modal-header">enter your provided Id number to edit this event
+            <div class="modal-header">Enter your provided Id number to edit this event
                 <h5 class="modal-title" id="exampleModalLabel"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form action="{{url_for('edit_event', event_id= event._id)}}" method="POST">
+            <div class="modal-body" id="edit_button" >
+
+                <form action="{{url_for('edit_event', event_id= event._id)}}" method="POST, GET">
                 <div class="form-group">
                     <label for="id-number" class="col-form-label">Id Number:</label>
-                    <input type="text" class="form-control" name="id_no" value="{{id_no}}" required>
-                    
-                    <button type="submit" name="action" class="btn btn-primary"> Go to event
-                </button>
+                    <input type="text" class="form-control" name="id_no" value="{{id_no}}" required>                    
+                    <button type="submit" name="action" class="btn btn-primary" onclick="myFunction({{event._id}})"> Go to event
+                    </button>
                 </div>                
                 </form>
                 

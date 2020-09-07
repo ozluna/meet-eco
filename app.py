@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 # connecting DB to the app
 app.config["MONGO_DBNAME"] = 'meet_event'
-app.config["MONGO_URI"] = os.getenv("MONGO_URI")
+app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 
 mongo = PyMongo(app)
 
@@ -40,6 +40,8 @@ def insert_event():
 @app.route("/edit_event/<event_id>", methods=['POST', 'GET'])
 def edit_event(event_id):
     id_no = request.form.get('id_no')
+    print(event_id)
+    print(id_no)
     if id_no == event_id:
         events = mongo.db.events.find_one({"_id": ObjectId(event_id)})
         cats = mongo.db.event_categories.find()

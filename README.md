@@ -136,9 +136,9 @@ User can
 The application uses MongoDB for data storage. MongoDB was chosen as the database to use due to the unstructured format of the data that will be stored within it.  
 The data stored in the database are the following:
 
-...* Object  
-...* String  
-...* Array  
+* Object  
+* String  
+* Array  
 ### Data structure  
 
 #### Event_categories  
@@ -164,8 +164,8 @@ To test the website I have used Google developer tools during and after creating
 I tested the responsivenes between different mobile devices using Google developer tools. I also tested it in most common browsers such as Chrome, Mozilla,  
 Safari, Opera.  
 I tested my html code with [W3C HTML Validator](https://validator.w3.org/).  
-** There were minor errors such as image alt tag which I fixed accordingly.  
-** There is also id duplication error exist at the moment due to way of creation of the modals.
+* There were minor errors such as image alt tag which I fixed accordingly.  
+* There is also id duplication error exist at the moment due to way of creation of the modals.
 
 I tested my CSS code with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).I fixed the errors and warnings accordingly.
 

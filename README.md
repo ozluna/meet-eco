@@ -1,4 +1,4 @@
-![(assets/image/Amiresponsive.PNG)](assets/image/MeetEcoresponsive.PNG)
+![(assets/image/MeetEcoresponsive.PNG)](assets/image/MeetEcoresponsive.PNG)
 
 
 # **MeetEco**
@@ -73,7 +73,7 @@ The website prototype I have designed is [here](wireframe/MeetEco.pdf).
 The colors I used in this project were:  
 
 
-![(assets/image/MeetEcopallete.png)](static/images/pallete.png)  
+![(static/images/pallete.png)](static/images/pallete.png)  
 
 
 I used Google fonts for the website; font *"Monoton"* for the website motto , font *"Oswald"* for the headings and, *"Lato"* for the paragraphs and contents. 

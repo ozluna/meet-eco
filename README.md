@@ -239,7 +239,7 @@ You should then be able to launch your app using the following command in your t
 | PORT          | 5000                               |  
 | MONGODBNAME   | <database_name>                    | 
 | MONGO_URI     |mongodb+srv://:@<cluster_name>      |
-                |-qtxun.mongodb.net/<database_name>  |
+|               |-qtxun.mongodb.net/<database_name>  |
 |               |?retryWrites=true&w=majority        |
 | SECRET KEY    | attenders details                  |
 
@@ -249,7 +249,7 @@ You should then be able to launch your app using the following command in your t
 I used code institute instarctions to create  CRUD on Python   
 
 
-All the vector images are created on[freepik] (https://www.freepik.com/free-photos-vectors/people) 
+All the vector images are taken from [freepik](https://www.freepik.com/free-photos-vectors/people) 
 Canva has used to create the logo [Canva](https://www.canva.com/)  
 created event leaf icon is from Fontawsome [Fontawsome](https://fontawesome.com/)   
 For responsiveness I used [Boostrap](https://getbootstrap.com/)  

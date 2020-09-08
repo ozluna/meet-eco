@@ -3,7 +3,6 @@ body{font-family: lato;}
 h1{
     font-family: Oswald;
     text-align: center;
-
 }
 #logo img{
     border-radius: 50%;
@@ -45,7 +44,7 @@ nav {
     max-height: 100%;
     height: auto;
 }
-
+/*Designing the card*/
 .card-title{
     font-family: oswald;
     font-size: xxx-large;
@@ -59,10 +58,24 @@ nav {
     padding: .1rem .5rem;
 
 }
+.btn-primary {
+    background-color: #26a69a;
+    border-color: #26a69a;
+}
+.btn-primary:hover{
+    background-color: #eb4924ba;
+    border-color:#eb4924ba;
+}
+.btn-secondary{
+    background-color: #eb4924ba;
+    border-color:#eb4924ba;
+    color:white;
+}
 .btn-large{
     padding: 0 1em;
     font-size: 0.75em;
 }
+/* create and edit event page icons color*/
 .input-field .prefix{
     color : #9bae99;
 }
@@ -100,18 +113,4 @@ nav {
 
 .modal input{
     font-family: lato;
-}
-
-.btn-primary {
-    background-color: #26a69a;
-    border-color: #26a69a;
-}
-.btn-primary:hover{
-    background-color: #eb4924ba;
-    border-color:#eb4924ba;
-}
-.btn-secondary{
-    background-color: #eb4924ba;
-    border-color:#eb4924ba;
-    color:white;
 }

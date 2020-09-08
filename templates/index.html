@@ -53,13 +53,12 @@
                
             </div> 
             <div class="card-footer">
-                <button type="button" class="waves-effect waves-light btn-large left" data-toggle="modal" data-target="#editevent{{event._id}}" > Edit This Event<i class="material-icons left">create</i></button>
-                
+                 <button type="button" class="waves-effect waves-light btn-large left" data-toggle="modal" data-target="#editevent{{event._id}}" > Edit This Event<i class="material-icons left d-none d-sm-block">create</i></button>
                 <!-- put a counter for the people who are interested with the event asking their email address and name
                     -->
                 <!-- Button trigger modal -->
                 <button type="button" class="waves-effect waves-light btn-large right" data-toggle="modal" data-target="#attender{{event._id}}" id="mybutton">
-                <i class="material-icons left">exposure_plus_1</i> Join the event
+                <i class="material-icons left d-none d-sm-block">exposure_plus_1</i> Join The Event
             </button>         
             
             </div>        
@@ -125,21 +124,41 @@
             </div>
             <div class="modal-body" >
 
-                <form action="{{url_for('edit_event', event_id= event._id)}}" method="POST" id="myform">
+                <form action="{{url_for('edit_event', event_id= event._id)}}" method="POST" id="myform{{event._id}}">
                 <div class="form-group">
                     <label for="id-number" class="col-form-label">Id Number:</label>
-                    <input type="text" class="form-control" name="id_no" value="{{id_no}}" id="id_no" required>                    
-                    <button type="submit" name="action" class="btn btn-primary" id="gotoevent{{id|safe}}" > Go to event
+                    <input type="text" class="form-control" name="id_no" value="{{id_no}}" id="id_no{{event._id}}"   required>                    
+                    <button type="submit" name="action" class="btn btn-primary" id="gotoevent{{event._id}}" > Go to event
                     </button>
-                    <input type="hidden" value="{{event._id}}" id="idcheck">
+                    <input type="hidden" id="event_id{{event._id}}" value="{{event._id}}">
                 </div>                
                 </form>
-                <p id="errorMessage"></p>
+                <p id="errorMessage{{event._id}}"></p>
             </div>
            
             </div>
         </div>
     </div>    
+    <script>
+                document.getElementById('gotoevent{{event._id}}').addEventListener('click', function(event){
+                console.log('I am working')
+                event.preventDefault();
+                const id1 = document.getElementById('id_no{{event._id}}').value;
+                const id2 = document.getElementById('event_id{{event._id}}').value;
+                
+                if ( id1 != id2){
+                    
+                    const result = document.getElementById('errorMessage{{event._id}}').innerHTML = 'Id you enter is wrong. Please try again';  
+                    return   result;   
+                }
+                else
+                    {
+                        const result = document.getElementById('myform{{event._id}}').submit;
+                        return result;
+                    }
+            });
+    
+    </script>
            
     {% endfor %}        
     

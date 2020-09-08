@@ -1,4 +1,4 @@
-![(assets/image/Amiresponsive.PNG)](assets/image/Amiresponsive.PNG)
+![(assets/image/Amiresponsive.PNG)](assets/image/MeetEcoresponsive.PNG)
 
 
 # **MeetEco**
@@ -109,25 +109,49 @@ User can
 
   * Javascript 
 
-  * MONGODB
-
 
   * [Bootstrap](https://getbootstrap.com/)
 
 
-  * [Google Fonts](https://fonts.google.com/) *Courgette*, *Raleway*
+  * [Google Fonts](https://fonts.google.com/) *Lato*, *Oswald*, *Monoton*
 
 
-  * [Google Places API](https://developers.google.com/places/web-service/intro) to call location, restaurant name, address, raiting, photos, reviews.
+  
+  * [Fontawsome](https://fontawesome.com/) for the event categories icon.
 
 
-  * [Fontawsome](https://fontawesome.com/) for the social links.
+  * [Materializecss](https://materializecss.com/) for the greeting animation.
 
+### Back-End Technologies
+* Flask - Used as the microframework.
+* Jinja - Used for templating with Flask.
+* Heroku - Used to host the application
+* Python - The back-end programming language.
+* Pymongo - Used to connect the python with the database.
+* MongoDB Atlas - Used to store the database.
 
-  * [Materializecss](https://animista.net/play/entrances/scale-in/scale-in-top) for the greeting animation.
+### Database Schema
+The application uses MongoDB for data storage. MongoDB was chosen as the database to use due to the unstructured format of the data that will be stored within it.  
+The data stored in the database are the following:
 
+...* Object
+...* String
+...* Array
+### Data structure  
+#### event_categories  
+| Title         | 	Key in db	|form validation type|	Data type |  
+| ------------- |:-------------:| ------------------:|String |
+| event_id      |      _id      | $1600              |String | 
+| event_name    | Event name    |   $12              |String | 
+| event_picture | path to the image |    $1          |String | 
 
-    
+#### events
+
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
   
 ## **Testing**
 To test the website I have used Google developer tools during and after creating the site to check CSS elements and website responsiveness,  

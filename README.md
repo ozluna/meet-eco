@@ -216,7 +216,7 @@ Create a .env file with your credentials. Be sure to include your MONGO_URI and 
 Install all requirements from the requirements.txt file using the following command:
 
   `sudo -H pip3 -r requirements.txt`
-Sign up for a free account on MongoDB and create a new Database called StudyPlanner. The names of the databases collections can be found in the database schema section.
+
 
 You should then be able to launch your app using the following command in your terminal:
 
@@ -238,9 +238,9 @@ You should then be able to launch your app using the following command in your t
 | IP            | 0.0.0.0                            | 
 | PORT          | 5000                               |  
 | MONGODBNAME   | <database_name>                    | 
-| MONGO_URI     |mongodb+srv://:@<cluster_name>      |
-|               |-qtxun.mongodb.net/<database_name>  |
-|               |?retryWrites=true&w=majority        |
+| MONGO_URI     |mongodb+srv://:@<cluster_name>      | 
+|               | -qtxun.mongodb.net/<database_name> |
+|               | ?retryWrites=true&w=majority       |
 | SECRET KEY    | attenders details                  |
 
 * In the heroku dashboard, click "Deploy".

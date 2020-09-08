@@ -15,7 +15,7 @@ function scrollFunction() {
 
 $('.navbar-toggler-icon').click(function() {
     $('.navbar').toggleClass('bg-white');
-})
+});
 
 /** date picker initilazitaion  */
 
@@ -33,31 +33,28 @@ $(document).ready(function(){
     
   /**Changing the date */
    $(document).ready(function(){
-            event_date = Date.parse('{{event.event_date}}');
-            $('#event_date').pickadate('picker').set('select', event_date, {format:'dd/mm/yyyy'}).trigger('change')
-        }) 
+           const event_date = Date.parse('{{event.event_date}}');
+            $('#event_date').pickadate('picker').set('select', event_date, {format:'dd/mm/yyyy'}).trigger('change');
+        }) ;
 
 /** event_category selection */
 
   $(document).ready(function(){
     $('select').formSelect();
-  })
+  });
 
   
     //modal button trigger 
 $('#attender').on('shown.bs.modal', function (event) {
-  var button = $(event.relatedTarget) // Button that triggered the modal
-  var recipient = button.data('whatever') // Extract info from data-* attributes 
+  var button = $(event.relatedTarget); // Button that triggered the modal
+  var recipient = button.data('whatever'); // Extract info from data-* attributes 
   // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-  var modal = $(this)
-  modal.find('.modal-title').text('New message to ' + recipient)
-  modal.find('.modal-body input').val(recipient)
-})
+  var modal = $(this);
+  modal.find('.modal-title').text('New message to ' + recipient);
+  modal.find('.modal-body input').val(recipient);
+});
 
 
  $(window).on('load',function(){
         $('#eventKey').modal('show');
     });
-
-   
-   

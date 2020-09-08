@@ -42,7 +42,7 @@
                    
             {%for cat in event_categories%}
                 {%if cat.event_name == event.event_name%}                    
-                    <img class="activator" src="{{url_for('static', filename = cat.event_pic)}}">                   
+                    <img class="activator" src="{{url_for('static', filename = cat.event_pic)}}" alt="event pictures">                   
                 {%endif %}
             {% endfor %}
 
@@ -116,8 +116,8 @@
     <div class="modal fade" id="editevent{{event._id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-            <div class="modal-header">Enter your provided Id number to edit this event
-                <h5 class="modal-title" id="exampleModalLabel"></h5>
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> Enter your provided Id number to edit this event</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
                 </button>

@@ -3,8 +3,8 @@ window.onscroll = function () {
 };
 
 /**
- * Hides navbar when user scrolls down.
- */
+ * Hides navbar when user scrolls down.*/
+ 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
         $(".navbar").addClass('d-none');
@@ -59,17 +59,20 @@ $('#attender').on('shown.bs.modal', function (event) {
         $('#eventKey').modal('show');
     });
 
-   function myFunction(event_id){
-    $.ajax({
-        url : '/edit_event'+event_id,
-        type: 'GET',
-        data: event_id,
-        error: function(){
-            event.preventDefault()
-            const wrong_id = document.createElement('p');
-            wrong_id.innerText= "Event id you enetered is wrong please try again";
-            document.getElementById('edit_button').appendChild(wrong_id);        
-            
+   document.getElementById('gotoevent{{id|safe}}').addEventListener("click",
+   function (event){
+       console.log('I am working')
+       event.preventDefault();
+       const id1 = document.getElementById('id_no').value;
+       const id2 = document.getElementById('idcheck').value;
+       if ( id1 != id2){
+           
+           const result = document.getElementById('errorMessage').innerHTML = 'Id you enter is wrong. Please try again';  
+           return   result;   
+       }
+       else
+         {
+             const result = document.getElementById('myform').submit;
+            return result;
         }
-    })
-}
+   });

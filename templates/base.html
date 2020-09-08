@@ -15,7 +15,7 @@
       <div class="row m-0">
       <!--website logo and navbar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-          <a class="navbar-brand" id="logo" href="{{url_for('index')}}">MeetEco</a>
+          <a class="navbar-brand" id="logo" href="{{url_for('index')}}"><img src="{{url_for('static', filename='images/MeetEco5.png')}}" alt=""></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false"  aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -46,16 +46,14 @@
             <div class="container">
                 <div class="row">
                 <div class="col l6 s12">
-                    <h5 class="white-text">Footer Content</h5>
-                    <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
+                    <h5 class="white-text">Contact Us</h5>
+                    <p class="grey-text text-lighten-4"> email: meeteco@gmail.com </p>
                 </div>
                 <div class="col l4 offset-l2 s12">
-                    <h5 class="white-text">Links</h5>
+                    <h5 class="white-text">Navigation</h5>
                     <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+                    <li><a class="grey-text text-lighten-3" style="text-align:left;" href="{{url_for('create_event')}}">Start here - Create an Event</a></li>
+                    <li><a class="grey-text text-lighten-3" style="text-align:left;" href="{{url_for('index')}}#seeEvents">See the events</a></li>                    
                     </ul>
                 </div>
                 </div>
@@ -63,7 +61,7 @@
             <div class="footer-copyright">
                 <div class="container">
                 © 2020 Copyright OzgeOnel
-                <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                <a class="grey-text text-lighten-4 right" href="{{url_for('index')}}">Go to top</a>
                 </div>
             </div>
     </footer>

@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -12,7 +13,7 @@ app = Flask(__name__)
 
 # connecting DB to the app
 app.config["MONGO_DBNAME"] = 'meet_event'
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 
@@ -47,10 +48,11 @@ def edit_event(event_id):
         cats = mongo.db.event_categories.find()
         return render_template("editevent.html",
                                event=events, event_categories=cats,
+                               id=map(json.dumps, event_id)
                                )
     else:
-        error = 'Event id you enter is wrong please try again.'
-        return error
+        id = event_id
+        return render_template('index.html', id=map(json.dumps, id))
 
 
 @app.route('/update_event/<event_id>', methods=['POST'])

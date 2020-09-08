@@ -1,35 +1,38 @@
 ![(assets/image/Amiresponsive.PNG)](assets/image/Amiresponsive.PNG)
 
 
-# **FoodBook**
+# **MeetEco**
 
-FoodBook is a website which encourages and helps people to choose a different cuisine where ever they are.
+MeetEco is an easy event creator based on ecological concerns.
 
-This site makes use of the Google Places API to allow filtering restaurants by worlds most known cuisines.
 
 
 
 ## **User Experience**
 
- The navigation bar is at the head of the page easily visible, fixed to the top and clear for user to understand. 
- The "Home" button and the logo will take you right back to the landing.   
- "Find restaurant" tab will take you to the cuisines where you can make your interactive selections.   
- "Contact-me" tab will take you to a contact form.    
+ The navigation bar is at the head of the page easily visible. 
+ The "Home" button and the logo will take you right back to the landing with hero image.   
+ "How it works" tab will take you to short explanation about how to get use of the website.
+ "See the events" tab will take you to the events created.    
+ "Create an event" will take you to a form in order to create the event
  In the footer you can see the social links for you to follow me on Social Media in order to get updated information about the website.
 
 #### **User Stories**
 
 
 As a user I would like  
-* to be immediately sure if the website is credible and trustworthy.  
-* to have more targeted restaurant options to choose
-* to see the relevant information about the restaurants  
+* to have clear understanding what is the purpose of the website.
+* to see how can I get use of the website.  
+* to be able to create an event
+* to be able to edit or delete the event when I need to.
+* to see the created events, if I am interested be able to attend/ show interest 
 * to be able to contact someone when I need to
 
 
 As a owner I would like
 * to make sure users will understand how to interact with the website.
-* to make the restaurant selection easier by bringing the google reviews and restaurant rating.  
+* to make sure the user create ecological concern based events.
+* to make sure only the creator able to change or delete the event.
 * to ensure the user can contact me if they see any fault or suggestion to improve the website.
 
 
@@ -41,51 +44,59 @@ For this website I aimed to create an user friendly, intiuitive structure. To do
 
 ### **Scope**
 
-This website scope are those people who are looking for different tastes and want to make well informed choices of restaurants from various world's cuisine.  
+This website scope are those people who would like to create event based on ecological concerns therefore I limited the event categories   
 
 
 ### **Structure**
 
-The website is built in one page and three sections; landing, interactive section and contact me section.  
-The landing section has the header navigation menu bar which is placed and fixed at the top of the page along with the logo, the bar will follow the user along the page.  
-I used the tree structure therefore the menu on the mobile version collapses to the "hamburger" icon made with bootstrap classes.   
-There is a short, looped video with an animated box which greets the user as they arrive to the website.  
-Next section gives a brief information about what the website offers and how to use it.
-"Find restaurant" tab will take you to the main interaction of the website. I wanted to make it clear by highlighting and changing to the pointer cursor when the user hovers over the cuisine images to find the restaurants.
-As you click, markers will appear within range of your location which shows the restaurants on the map. When you click the marker of the restaurant you choose, it will
-bring a card with the restaurant information including photo, address, rating, webstie and reviews.
-"Contact me" section has give some information about myself and a contact form for the user to fill in. A message will be sent and I will recieve it immediately.
-Footer has the social links in colors and layout matching with the rest of the website design.  
+The website is built in home, create and edit sections:  
+index, which is the home page has 4 sections  landing, with hero image and website motto sharing the screen large and medium sizes 
+How it works section gives the short details about how to use the website,
+See the events section, displays all the events to the website visitors anyone can see the any events happening with details in materialized card and can show their interest by providing their details.  
+Also the creator can edit their events with the id provided when they created the event. This will take the user to edit page.
+Footer A responsive footer, pinned to the bottom of the page, with Contact Details, links for the login, register & home page also.
+
+
+"Create an Event" page allow user to create event, I kept the events limited so user will only create Climate concern based events.As the user  
+create an event there will be an modal screen informs the user about the event id and they can change delete with the unique code.
+
+
 
 
 ### **Skeleton**
 
 I tried to give as many information as I can with minimal choices. Navigation has "home", "find restaurant" and "contact me" section.  
-The website prototype I have designed is [here](wireframe/FoodBookWireframe.pdf).  
+The website prototype I have designed is [here](wireframe/MeetEcoWireframe.pdf).  
 ### **Surface**
 
 The colors I used in this project were:  
 
 
-![(assets/image/foodbookpallete.png)](assets/image/foodbookpallete.png)  
+![(assets/image/MeetEcopallete.png)](assets/image/MeetEcopallete.png)  
 
 
-I used Google fonts for the website; font *"Courgette"* for the section titles and logo, font *"Raleway"* for the main content. 
+I used Google fonts for the website; font *"Monoton"* for the website motto , font *"Oswald"* for the headings and, *"Lato"* for the paragraphs and contents. 
 
 ## **Features**
 ### **Existing Features**
 
+
 User can
-* navigate through the site with Navbar, they can go to finding restaurants or contact me section.
-* find their location if the user allows to do so, otherwise it will take London as default. It uses Google Places API to do that.
-* choose cuisine by clicking one of the images, this will show the spesific restaurants which serve this cuisine on the map.
-* click markers on the map and there will be a card appearing right next to map and revealing information such as address website link and reviews.
-* send me a message by filling the contact form. The contact form is sent using EmailJS.
+** navigate through the site with Navbar, they can go to how it works and see the event section.
+** get more information about the events on the events section.
+** create an event based on solutions world's ecological problems.
+** see te event id as soon as they created.
+** show interest by providing user details.
+** creator can update or delete the event once they provided the given id number.
+
 
 ### **Features Left to Implement**
-* Filter option to list the restaurants by their rating or prices for user to make better choices depending on their preferences.
-* "Add Review " option for user to be more interactive with the site.
-* "Order Online" option which will take user to online ordering websites such as "deliveroo", "uber eats" etc.
+* At the moment in order to edit or delete the event user has to provide the unique event id 
+  this is not secure or user friendly option so in the future I would like to set login page  
+  for user to register and login to Create an user account to control event creation, edit and delete options.  
+* I would like to add a filter option the events based on location so user can see closed by events.
+* Make user to able to add more event categories to widen to events options.
+* Make user able to add pictures they choose.
 
 
 ## **Technologies Used**
@@ -97,6 +108,8 @@ User can
 
 
   * Javascript 
+
+  * MONGODB
 
 
   * [Bootstrap](https://getbootstrap.com/)
@@ -111,7 +124,7 @@ User can
   * [Fontawsome](https://fontawesome.com/) for the social links.
 
 
-  * [Animista](https://animista.net/play/entrances/scale-in/scale-in-top) for the greeting animation.
+  * [Materializecss](https://animista.net/play/entrances/scale-in/scale-in-top) for the greeting animation.
 
 
     
@@ -128,13 +141,13 @@ I tested my Javascript code with [JSHint](https://jshint.com/) there was typing 
 ## **Deployment**
 
 In order to deploy the repository from GitHub I follow these steps.
-1. From GitHub repositories dashboard I selected "FoodBook".
+1. From GitHub repositories dashboard I selected "MeetEco".
 2. I went to Settings and "GitHub Pages" heading.
 3. I chose the "master branch" option from the "source" dropdown menu.
-4. This action refreshed the page and a ribbon appeared saying "Your site is published at  (https://ozluna.github.io/FoodBook/ ) with the the live link which indicated me that deployment was successful.
+4. This action refreshed the page and a ribbon appeared saying "Your site is published at  (https://ozluna.github.io/MeetEco/ ) with the the live link which indicated me that deployment was successful.
 
 #### To run locally:
-Save a copy of the github repository located at https://github.com/ozluna/FoodBook by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder.  
+Save a copy of the github repository located at https://github.com/ozluna/MeetEco by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder.  
 If you have Git installed on your system, you can clone the repository with the following steps:  
 
 * Open Git Bash.
@@ -143,7 +156,7 @@ If you have Git installed on your system, you can clone the repository with the 
 
 * Type git clone, and then paste the URL you copied earlier.
 
-  `git clone https://github.com/ozluna/FoodBook`  
+  `git clone https://github.com/ozluna/MeetEco`  
 
 * Press Enter to create your local clone.
 

@@ -5,12 +5,21 @@ h1{
     text-align: center;
 
 }
-
+#logo img{
+    border-radius: 50%;
+    width:75px;   
+    background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+    
+}
 .menu-bar{
-    padding-bottom:5em;
+    padding-bottom:7em;
     
 
 }
+nav {
+    height:auto;
+    
+    }
 .landing{
     width: 60%;
     align-items: center;
@@ -19,7 +28,7 @@ h1{
 
 .landing img{
         width:100%;
-        padding: 0 5rem;
+        padding: 0 1rem;
         
 }
 .landing h2 {
@@ -96,6 +105,10 @@ h1{
 .btn-primary {
     background-color: #26a69a;
     border-color: #26a69a;
+}
+.btn-primary:hover{
+    background-color: #eb4924ba;
+    border-color:#eb4924ba;
 }
 .btn-secondary{
     background-color: #eb4924ba;

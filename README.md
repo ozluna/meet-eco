@@ -11,28 +11,28 @@ MeetEco is an easy event creator based on ecological concerns.
 ## **User Experience**
 
  The navigation bar is at the head of the page easily visible. 
- The "Home" button and the logo will take you right back to the landing with hero image.   
- "How it works" tab will take you to short explanation about how to get use of the website.
+ The "Home" button and the logo will take you right back to the landing with hero image and website motto.   
+ "How it works" tab will take you to short explanation about how to use the website.
  "See the events" tab will take you to the events created.    
  "Create an event" will take you to a form in order to create the event
- In the footer you can see the social links for you to follow me on Social Media in order to get updated information about the website.
+ In the footer you can find the email to contact me and navigation link to the pages, also a link to send the user to top of the page.
 
 #### **User Stories**
 
 
 As a user I would like  
 * to have clear understanding what is the purpose of the website.
-* to see how can I get use of the website.  
+* to see how can I use the website.  
 * to be able to create an event
 * to be able to edit or delete the event when I need to.
-* to see the created events, if I am interested be able to attend/ show interest 
-* to be able to contact someone when I need to
+* to see the created events and if I am interested, to be able to attend.
+* to be able to contact someone when I need to.
 
 
 As a owner I would like
 * to make sure users will understand how to interact with the website.
 * to make sure the user create ecological concern based events.
-* to make sure only the creator able to change or delete the event.
+* to make sure only the creator is able to change or delete the event.
 * to ensure the user can contact me if they see any fault or suggestion to improve the website.
 
 
@@ -44,35 +44,36 @@ For this website I aimed to create an user friendly, intiuitive structure. To do
 
 ### **Scope**
 
-This website scope are those people who would like to create event based on ecological concerns therefore I limited the event categories   
+This website scope are those people who would like to create events based on ecological concerns, therefore I limited the event categories.   
 
 
 ### **Structure**
 
 The website is built in home, create and edit sections:  
-index, which is the home page has 4 sections  landing, with hero image and website motto sharing the screen large and medium sizes 
-How it works section gives the short details about how to use the website,
-See the events section, displays all the events to the website visitors anyone can see the any events happening with details in materialized card and can show their interest by providing their details.  
+Home page has 4 sections:  
+"Landing" has hero image and website motto sharing the screen large and medium sizes. 
+"How it works" gives the short details about how to use the website.
+"See the events" displays all the events to the website visitors anyone can see the any events happening with details in materialized card and can show their interest by providing their details.  
 Also the creator can edit their events with the id provided when they created the event. This will take the user to edit page.
-Footer A responsive footer, pinned to the bottom of the page, with Contact Details, links for the login, register & home page also.
+"Footer" is a responsive footer, pinned to the bottom of the page, with Contact Details, links to the navigation for the website.
 
 
-"Create an Event" page allow user to create event, I kept the events limited so user will only create Climate concern based events.As the user  
-create an event there will be an modal screen informs the user about the event id and they can change delete with the unique code.
+"Create an Event" page allow user to create event. I kept the events limited so user will only create climate concern based events. As the user  
+create an event there will be an modal screen that informs the user about the event id and that they can change or delete it with this unique code.
 
 
 
 
 ### **Skeleton**
 
-I tried to give as many information as I can with minimal choices. Navigation has "home", "find restaurant" and "contact me" section.  
-The website prototype I have designed is [here](wireframe/MeetEcoWireframe.pdf).  
+I tried to give as many information as I can with minimal choices. Navigation has "home", "how it works" and "see the events" and "create an event" sections.  
+The website prototype I have designed is [here](wireframe/MeetEco.pdf).  
 ### **Surface**
 
 The colors I used in this project were:  
 
 
-![(assets/image/MeetEcopallete.png)](assets/image/MeetEcopallete.png)  
+![(assets/image/MeetEcopallete.png)](static/images/pallete.png)  
 
 
 I used Google fonts for the website; font *"Monoton"* for the website motto , font *"Oswald"* for the headings and, *"Lato"* for the paragraphs and contents. 
@@ -84,18 +85,18 @@ I used Google fonts for the website; font *"Monoton"* for the website motto , fo
 User can
 ** navigate through the site with Navbar, they can go to how it works and see the event section.
 ** get more information about the events on the events section.
-** create an event based on solutions world's ecological problems.
-** see te event id as soon as they created.
+** create an event based on solutions to world's ecological problems.
+** see the event id as soon as they created.
 ** show interest by providing user details.
 ** creator can update or delete the event once they provided the given id number.
 
 
 ### **Features Left to Implement**
-* At the moment in order to edit or delete the event user has to provide the unique event id 
+* At the moment in order to edit or delete the event, user has to provide the unique event id 
   this is not secure or user friendly option so in the future I would like to set login page  
   for user to register and login to Create an user account to control event creation, edit and delete options.  
-* I would like to add a filter option the events based on location so user can see closed by events.
-* Make user to able to add more event categories to widen to events options.
+* I would like to add a filter option for the events based on location so user can see nearby events.
+* Make user able to add more event categories to widen the event options.
 * Make user able to add pictures they choose.
 
 
@@ -120,8 +121,9 @@ User can
   * [Fontawsome](https://fontawesome.com/) for the event categories icon.
 
 
-  * [Materializecss](https://materializecss.com/) for the greeting animation.
+  * [Materializecss](https://materializecss.com/) for the designing the card and footer.
 
+  
 ### Back-End Technologies
 * Flask - Used as the microframework.
 * Jinja - Used for templating with Flask.
@@ -134,25 +136,27 @@ User can
 The application uses MongoDB for data storage. MongoDB was chosen as the database to use due to the unstructured format of the data that will be stored within it.  
 The data stored in the database are the following:
 
-...* Object
-...* String
-...* Array
+...* Object  
+...* String  
+...* Array  
 ### Data structure  
-#### event_categories  
-| Title         | 	Key in db	    |form validation type|	Data type |  
-| ------------- |:-------------:    | ------------------:|-----------:|
-| event_id      |      _id          | $1600              |String      | 
-| event_name    | Event name        |   $12              |String      | 
-| event_picture | path to the image |    $1              |String      |
 
-#### events
+#### Event_categories  
+| Title         | 	Key in db	    |  Data type |  
+| ------------- |:-----------------:|-----------:|
+| event_id      |      _id          |ObjectId    | 
+| event_name    | Event name        |String      | 
+| event_picture | path to the image |String      |
 
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-  
+#### Events
+
+| Title             | Key in bd         | Data     |
+| -------------     |:-----------------:| --------:|
+| event_id          | _id               | ObjectId |
+| organiser_name    | Name              |   String |
+| event_description | Event description |   String |
+| event_date        | Event date        | String   |
+| guests            | attenders details | Array    |
 ## **Testing**
 To test the website I have used Google developer tools during and after creating the site to check CSS elements and website responsiveness,  
 "console" to see API and function errors, "source" for js function and typing errors and "network" tab to test APIs responding correctly.  

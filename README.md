@@ -159,51 +159,106 @@ The data stored in the database are the following:
 | guests            | attenders details | Array    |
 ## **Testing**
 To test the website I have used Google developer tools during and after creating the site to check CSS elements and website responsiveness,  
-"console" to see API and function errors, "source" for js function and typing errors and "network" tab to test APIs responding correctly.  
+"console" and "source" for js function and typing errors.
+
 I tested the responsivenes between different mobile devices using Google developer tools. I also tested it in most common browsers such as Chrome, Mozilla,  
 Safari, Opera.  
-I tested my html code with [W3C HTML Validator](https://validator.w3.org/). I fixed the erros and warnings accordingly.  
+I tested my html code with [W3C HTML Validator](https://validator.w3.org/).  
+** There were minor errors such as image alt tag which I fixed accordingly.  
+** There is also id duplication error exist at the moment due to way of creation of the modals.
+
 I tested my CSS code with [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).I fixed the errors and warnings accordingly.
+
 I tested my Javascript code with [JSHint](https://jshint.com/) there was typing error such as missing semicolon and undefined variables, these were also fixed accordingly.
+I tested Python code with PEP8 using it as follow:
+
+The autopep8 extension was installed in the workspace.
+
+To install this enter this in the terminal:
+`pip3 install --upgrade autopep8`
+In order for autopep8 to run, pycodestyle is also required. To instlal pycodestyle, enter this command into the terminal:
+
+`pip3 install pycodestyle`
+Once these steps are complete, you can format the code into PEP8 formatting by entering this command into the terminal:
+
+`autopep8 --in-place --aggressive --aggressive app.py`
+
+I have recieved no error in the end of testing
+
+## Bugs
+I had problems mainly due to modals:  
+The way of the modal's creation are loop and every loop has the same id name was my main issue.  
+I have fixed it with assign unique event id numbers to the element ids using jinja templates
+The other problem I was having id validation:
+When the user input and event id matches the button takes the user to edit page however if it doesn't match it stay on the page  
+without giving any error. When I tried to populate the error using javascript on the modal screen I was again having the id name problem 
+therefore I had to carry the JS code to index page and it fixed my problem.  
+Card buttons were collating on top of each other on the xs small picture I fixed the issue by taking the Materialize icons from card buttons  
+when the screen small.
 
 ## **Deployment**
+#### To run this project locally
 
-In order to deploy the repository from GitHub I follow these steps.
-1. From GitHub repositories dashboard I selected "MeetEco".
-2. I went to Settings and "GitHub Pages" heading.
-3. I chose the "master branch" option from the "source" dropdown menu.
-4. This action refreshed the page and a ribbon appeared saying "Your site is published at  (https://ozluna.github.io/MeetEco/ ) with the the live link which indicated me that deployment was successful.
+In order to run this project locally, you will need to install the following:
 
-#### To run locally:
-Save a copy of the github repository located at https://github.com/ozluna/MeetEco by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder.  
-If you have Git installed on your system, you can clone the repository with the following steps:  
+An IDE, such as VS Code
+PIP to install the app requirements.
+Python3 to run the application
+GIT for version control
+MongoDB to develop the database.
+Once this is done, you will need need to download the .ZIP file of the repository, unzip this file and then in the CLI with GIT installed, enter the following command:
 
-* Open Git Bash.
+https://github.com/ozluna/meet-eco.git 
+Navigate to the to path using the cd command.
 
-* Change the current working directory to the location where you want the cloned directory.
+Create a .env file with your credentials. Be sure to include your MONGO_URI and SECRET_KEY values.
 
-* Type git clone, and then paste the URL you copied earlier.
+Install all requirements from the requirements.txt file using the following command:
 
-  `git clone https://github.com/ozluna/MeetEco`  
+  `sudo -H pip3 -r requirements.txt`
+Sign up for a free account on MongoDB and create a new Database called StudyPlanner. The names of the databases collections can be found in the database schema section.
 
-* Press Enter to create your local clone.
+You should then be able to launch your app using the following command in your terminal:
 
+  `python app.py`
 
+## Remote Deployment
+* Create a `requirements.txt` file using the terminal command pip freeze > requirements.txt.
+* Create a Procfile with the terminal command `echo web: python app.py > Procfile`.
+* `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
+* Head over to Heroku
+* Click the "new" button, give the project a name & set the region to Europe.
+* From the heroku dashboard of your newly created application, click on `"Deploy" > "Deployment method"` and select GitHub.
+* Confirm the linking of the heroku app to the correct GitHub repository.
+* In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+* Set the following config vars:
+
+| KEY            | VALUE                             | 
+| ------------- |:----------------------------------:|
+| IP            | 0.0.0.0                            | 
+| PORT          | 5000                               |  
+| MONGODBNAME   | <database_name>                    | 
+| MONGO_URI     |mongodb+srv://:@<cluster_name>      |
+                |-qtxun.mongodb.net/<database_name>  |
+|               |?retryWrites=true&w=majority        |
+| SECRET KEY    | attenders details                  |
+
+* In the heroku dashboard, click "Deploy".
+* Your application should now be deployed.
 ## **Credits**
-I used Google Places Documentation and [codelabs developers](https://codelabs.developers.google.com/) when I created the code to find the user's location 
-script and I found some help on ["stackoverflow"](https://stackoverflow.com/questions/29734251/google-places-js-api-show-reviews) for the script to call the reviews.  SendEmail function was created with help of documentation from EmailJs and code institute lessons.  
+I used code institute instarctions to create  CRUD on Python   
 
 
-All the images are created on [Canva](https://www.canva.com/)  
-Social link icons are taken from [Fontawsome](https://fontawesome.com/)  
-Animation on the greeting is from [Animista](https://animista.net/)  
+All the vector images are created on[freepik] (https://www.freepik.com/free-photos-vectors/people) 
+Canva has used to create the logo [Canva](https://www.canva.com/)  
+created event leaf icon is from Fontawsome [Fontawsome](https://fontawesome.com/)   
 For responsiveness I used [Boostrap](https://getbootstrap.com/)  
 For fonts I used [Google Fonts](https://fonts.google.com/)  
 
 
 ## **Acknowledgements**
 
-In the process of finishing this website I used many resources mainly, Google Places documentation, MDN web docs, W3Schools, Stack Overflow.  
+In the process of finishing this website I used many resources mainly, MDN web docs, W3Schools, Stack Overflow.  
 Youtube channels such as Travers media, online resources [goalkicker](https://goalkicker.com), code institute videos and last but not least my mentor and tutors help.
 
 

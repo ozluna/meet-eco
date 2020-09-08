@@ -54,9 +54,7 @@
             </div> 
             <div class="card-footer">
                  <button type="button" class="waves-effect waves-light btn-large left" data-toggle="modal" data-target="#editevent{{event._id}}" > Edit This Event<i class="material-icons left d-none d-sm-block">create</i></button>
-                <!-- put a counter for the people who are interested with the event asking their email address and name
-                    -->
-                <!-- Button trigger modal -->
+                <!-- Button trigger modal for attenders details -->
                 <button type="button" class="waves-effect waves-light btn-large right" data-toggle="modal" data-target="#attender{{event._id}}" id="mybutton">
                 <i class="material-icons left d-none d-sm-block">exposure_plus_1</i> Join The Event
             </button>         
@@ -138,7 +136,8 @@
            
             </div>
         </div>
-    </div>    
+    </div> 
+    <!--script for id checking -->   
     <script>
                 document.getElementById('gotoevent{{event._id}}').addEventListener('click', function(event){
                 console.log('I am working')
@@ -156,7 +155,7 @@
                         const result = document.getElementById('myform{{event._id}}').submit;
                         return result;
                     }
-            });
+                    });
     
     </script>
            

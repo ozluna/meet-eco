@@ -75,11 +75,11 @@ def insert_attender(event_id):
     event = mongo.db.events
     event.update({'_id': ObjectId(event_id)},
                  {'$addToSet': {
-                    "guests": {
-                        'fname': request.form.get('fname'),
-                        'lname': request.form.get('lname'),
-                        'email': request.form.get('email')
-                    }
+                     "guests": {
+                         'fname': request.form.get('fname'),
+                         'lname': request.form.get('lname'),
+                         'email': request.form.get('email')
+                     }
                  }})
     return redirect(url_for('index'))
 
@@ -99,5 +99,4 @@ def created_event():
 if __name__ == "__main__":
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
-            debug=True)
-
+            debug=False)

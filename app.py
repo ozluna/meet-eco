@@ -1,5 +1,4 @@
 import os
-import json
 from flask import Flask, render_template, redirect, request, url_for
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
@@ -38,7 +37,7 @@ def insert_event():
     return redirect(url_for('created_event'))
 
 
-@app.route("/edit_event/<event_id>", methods=['POST', 'GET'])
+@app.route("/edit_event/<event_id>", methods=['POST'])
 def edit_event(event_id):
     id_no = request.form.get('id_no')
     print(event_id)
@@ -47,12 +46,8 @@ def edit_event(event_id):
         events = mongo.db.events.find_one({"_id": ObjectId(event_id)})
         cats = mongo.db.event_categories.find()
         return render_template("editevent.html",
-                               event=events, event_categories=cats,
-                               id=map(json.dumps, event_id)
+                               event=events, event_categories=cats
                                )
-    else:
-        id = event_id
-        return render_template('index.html', id=map(json.dumps, id))
 
 
 @app.route('/update_event/<event_id>', methods=['POST'])

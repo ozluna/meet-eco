@@ -139,11 +139,11 @@ The data stored in the database are the following:
 ...* Array
 ### Data structure  
 #### event_categories  
-| Title         | 	Key in db	|form validation type|	Data type |  
-| ------------- |:-------------:| ------------------:|String |
-| event_id      |      _id      | $1600              |String | 
-| event_name    | Event name    |   $12              |String | 
-| event_picture | path to the image |    $1          |String | 
+| Title         | 	Key in db	    |form validation type|	Data type |  
+| ------------- |:-------------:    | ------------------:|-----------:|
+| event_id      |      _id          | $1600              |String      | 
+| event_name    | Event name        |   $12              |String      | 
+| event_picture | path to the image |    $1              |String      |
 
 #### events
 

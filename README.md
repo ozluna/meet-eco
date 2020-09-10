@@ -254,7 +254,7 @@ You should then be able to launch your app using the following command in your t
 * In the Heroku dashboard, click "Deploy".
 * Your application should now be deployed.
 ## **Credits**
-I used code institute instarctions to create  CRUD on Python.   
+I used code institute instarctions to create  CRUD and Python.   
 
 I used [Materialize](https://materializecss.com/) for the "Create" and "Edit" forms as well as "Main Page" cards.   
 All the vector images are taken from [freepik](https://www.freepik.com/free-photos-vectors/people)  

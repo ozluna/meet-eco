@@ -6,8 +6,6 @@
 MeetEco is an easy event creator based on ecological concerns.
 
 
-
-
 ## **User Experience**
 
  The navigation bar is at the head of the page easily visible. 
@@ -83,12 +81,12 @@ I used Google fonts for the website; font *"Monoton"* for the website motto , fo
 
 
 User can
-** navigate through the site with Navbar, they can go to how it works and see the event section.
-** get more information about the events on the events section.
-** create an event based on solutions to world's ecological problems.
-** see the event id as soon as they created.
-** show interest by providing user details.
-** creator can update or delete the event once they provided the given id number.
+*  navigate through the site with Navbar, they can go to how it works and see the event section.
+*  get more information about the events on the events section.
+*  create an event based on solutions to world's ecological problems.
+*  see the event id as soon as they created.
+*  show interest by providing user details.
+*  creator can update or delete the event once they provided the given id number.
 
 
 ### **Features Left to Implement**
@@ -187,13 +185,19 @@ I have recieved no error in the end of testing
 
 ## Bugs
 I had problems mainly due to modals:  
-The way of the modal's creation are loop and every loop has the same id name was my main issue.  
-I have fixed it with assign unique event id numbers to the element ids using jinja templates
-The other problem I was having id validation:
-When the user input and event id matches the button takes the user to edit page however if it doesn't match it stay on the page  
+The way of the modal's creations are loop for instance Join the Event button every modal I created had the same id `id="attender"` so the buttons were defaulting to the first one. Therefore, code was only working for
+the first modal not the rest.  
+I have fixed it with appending unique event id numbers to the element id's using jinja templates. `id="attender{{event._id}}"`
+
+
+The other problem I was having, id validation:  
+When the user input and event id matches the button would take the user to the edit page however if it doesn't match it stays on the page  
 without giving any error. When I tried to populate the error using javascript on the modal screen I was again having the id name problem 
-therefore I had to carry the JS code to index page and it fixed my problem.  
-Card buttons were collating on top of each other on the xs small picture I fixed the issue by taking the Materialize icons from card buttons  
+again therefore I had to carry the JS code to index page and it fixed my problem. I am aware that this is not the best solution however is 
+the best of my knowledge, in the future I am planning to use ajax js code to fix this.  
+
+
+Card buttons were collating on top of each other on the xs and small sized devices I fixed the issue by taking the Materialize icons from card buttons  
 when the screen small.
 
 ## **Deployment**
@@ -208,7 +212,7 @@ GIT for version control
 MongoDB to develop the database.
 Once this is done, you will need need to download the .ZIP file of the repository, unzip this file and then in the CLI with GIT installed, enter the following command:
 
-https://github.com/ozluna/meet-eco.git 
+`https://github.com/ozluna/meet-eco.git` 
 Navigate to the to path using the cd command.
 
 Create a .env file with your credentials. Be sure to include your MONGO_URI and SECRET_KEY values.
@@ -223,7 +227,7 @@ You should then be able to launch your app using the following command in your t
   `python app.py`
 
 ## Remote Deployment
-* Create a `requirements.txt` file using the terminal command pip freeze > requirements.txt.
+* Create a `requirements.txt` file using the terminal command  `pip3 freeze --local > requirements.txt` .
 * Create a Procfile with the terminal command `echo web: python app.py > Procfile`.
 * `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
 * Head over to Heroku
@@ -233,23 +237,21 @@ You should then be able to launch your app using the following command in your t
 * In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
 * Set the following config vars:
 
-| KEY            | VALUE                             | 
+| KEY           | VALUE                              | 
 | ------------- |:----------------------------------:|
 | IP            | 0.0.0.0                            | 
 | PORT          | 5000                               |  
 | MONGODBNAME   | <database_name>                    | 
-| MONGO_URI     |mongodb+srv://:@<cluster_name>      | 
-|               | -qtxun.mongodb.net/<database_name> |
-|               | ?retryWrites=true&w=majority       |
-| SECRET KEY    | attenders details                  |
+| MONGO_URI     |mongodb+srv://:@<cluster_name> -qtxun.mongodb.net/<database_name> ?retryWrites=true&w=majority |              
+| SECRET KEY    | `<your_secret_key>`                 |
 
 * In the heroku dashboard, click "Deploy".
 * Your application should now be deployed.
 ## **Credits**
-I used code institute instarctions to create  CRUD on Python   
+I used code institute instarctions to create  CRUD on Python.   
 
-
-All the vector images are taken from [freepik](https://www.freepik.com/free-photos-vectors/people) 
+I used [Materialize](https://materializecss.com/) for the create and edit form as well as main page cards.   
+All the vector images are taken from [freepik](https://www.freepik.com/free-photos-vectors/people)  
 Canva has used to create the logo [Canva](https://www.canva.com/)  
 created event leaf icon is from Fontawsome [Fontawsome](https://fontawesome.com/)   
 For responsiveness I used [Boostrap](https://getbootstrap.com/)  

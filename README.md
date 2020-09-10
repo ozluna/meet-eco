@@ -191,20 +191,20 @@ I have recieved no error in the end of testing
 
 ## Bugs
 I had problems mainly due to modals:  
-The way of the modal's creations are loop for instance Join the Event button every modal I created had the same id `id="attender"` so the buttons were defaulting to the first one. Therefore, code was only working for
-the first modal not the rest.  
-I have fixed it with appending unique event id numbers to the element id's using jinja templates. `id="attender{{event._id}}"`
+The way of the modal's creations are in a loop, for instance "Join the Event" button of every modal I created had the same id `id="attender"` so the buttons were defaulting to the first one.
+Therefore, the code was only working for the first modal but not the rest.  
+I have fixed it by appending unique event id numbers to the element id's using jinja templates. `id="attender{{event._id}}"`
 
 
 The other problem I was having, id validation:  
-When the user input and event id matches the button would take the user to the edit page however if it doesn't match it stays on the page 
+When the user input and event id matched the button this would take the user to the edit page however if it did not match it it would stay on the page 
 without giving any error. When I tried to populate the error using javascript on the modal screen I was again having the id name problem 
-again therefore I had to carry the JS code to index page and it fixed my problem. I am aware that this is not the best solution however is 
+therefore I had to carry the JS code to index page and this fixed this problem. I am aware that this is not the best solution however is 
 the best of my knowledge, in the future I am planning to use ajax js code to fix this.  
 
 
-Card buttons were collating on top of each other on the xs and small sized devices I fixed the issue by taking the Materialize icons from card buttons  
-when the screen small.
+Card buttons were collating on top of each other on the xs and small sized devices. I fixed the issue by taking the Materialize icons away from card buttons  
+when the screen is small.
 
 ## **Deployment**
 #### To run this project locally
@@ -216,7 +216,7 @@ PIP to install the app requirements.
 Python3 to run the application
 GIT for version control
 MongoDB to develop the database.
-Once this is done, you will need need to download the .ZIP file of the repository, unzip this file and then in the CLI with GIT installed, enter the following command:
+Once this is done, you will need to download the .ZIP file of the repository, unzip this file and then in the CLI with GIT installed, enter the following command:
 
 `https://github.com/ozluna/meet-eco.git` 
 Navigate to the to path using the cd command.
@@ -238,9 +238,9 @@ You should then be able to launch your app using the following command in your t
 * `git add` and `git commit` the new requirements and Procfile and then `git push` the project to GitHub.
 * Head over to Heroku
 * Click the "new" button, give the project a name & set the region to Europe.
-* From the heroku dashboard of your newly created application, click on `"Deploy" > "Deployment method"` and select GitHub.
-* Confirm the linking of the heroku app to the correct GitHub repository.
-* In the heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
+* From the Heroku dashboard of your newly created application, click on `"Deploy" > "Deployment method"` and select GitHub.
+* Confirm the linking of the Heroku app to the correct GitHub repository.
+* In the Heroku dashboard for the application, click on "Settings" > "Reveal Config Vars".
 * Set the following config vars:
 
 | KEY           | VALUE                              | 
@@ -251,22 +251,22 @@ You should then be able to launch your app using the following command in your t
 | MONGO_URI     |mongodb+srv://:@<cluster_name> -qtxun.mongodb.net/<database_name> ?retryWrites=true&w=majority |              
 | SECRET KEY    | `<your_secret_key>`                 |
 
-* In the heroku dashboard, click "Deploy".
+* In the Heroku dashboard, click "Deploy".
 * Your application should now be deployed.
 ## **Credits**
 I used code institute instarctions to create  CRUD on Python.   
 
-I used [Materialize](https://materializecss.com/) for the create and edit form as well as main page cards.   
+I used [Materialize](https://materializecss.com/) for the "Create" and "Edit" forms as well as "Main Page" cards.   
 All the vector images are taken from [freepik](https://www.freepik.com/free-photos-vectors/people)  
-Canva has used to create the logo [Canva](https://www.canva.com/)  
-created event leaf icon is from Fontawsome [Fontawsome](https://fontawesome.com/)   
+Canva was used to create the logo [Canva](https://www.canva.com/)  
+Event_categories leaf icon is from Fontawsome [Fontawsome](https://fontawesome.com/)   
 For responsiveness I used [Boostrap](https://getbootstrap.com/)  
 For fonts I used [Google Fonts](https://fonts.google.com/)  
 
 
 ## **Acknowledgements**
 
-In the process of finishing this website I used many resources mainly, MDN web docs, W3Schools, Stack Overflow.  
+In the process of finishing this website I used many resources, mainly; MDN web docs, W3Schools, Stack Overflow.  
 Youtube channels such as Travers media, online resources [goalkicker](https://goalkicker.com), code institute videos and last but not least my mentor and tutors help.
 
 

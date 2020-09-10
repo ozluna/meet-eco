@@ -109,6 +109,10 @@ User can
   * Javascript 
 
 
+  * JQuery  Used for some of the main javascript functionality.
+
+ 
+
   * [Bootstrap](https://getbootstrap.com/)
 
 
@@ -122,22 +126,24 @@ User can
   * [Materializecss](https://materializecss.com/) for the designing the card and footer.
 
   
-### Back-End Technologies
+### **Back-End Technologies**
 * Flask - Used as the microframework.
-* Jinja - Used for templating with Flask.
+* Jinja - template to simplify displaying data from the backend of this project smoothly and effectively in html.
 * Heroku - Used to host the application
 * Python - The back-end programming language.
 * Pymongo - Used to connect the python with the database.
 * MongoDB Atlas - Used to store the database.
+* PIP - for installation of tools needed in this project.
 
-### Database Schema
+
+### **Database Schema**
 The application uses MongoDB for data storage. MongoDB was chosen as the database to use due to the unstructured format of the data that will be stored within it.  
 The data stored in the database are the following:
 
 * Object  
 * String  
 * Array  
-### Data structure  
+### **Data structure**  
 
 #### Event_categories  
 | Title         | 	Key in db	    |  Data type |  
@@ -191,7 +197,7 @@ I have fixed it with appending unique event id numbers to the element id's using
 
 
 The other problem I was having, id validation:  
-When the user input and event id matches the button would take the user to the edit page however if it doesn't match it stays on the page  
+When the user input and event id matches the button would take the user to the edit page however if it doesn't match it stays on the page 
 without giving any error. When I tried to populate the error using javascript on the modal screen I was again having the id name problem 
 again therefore I had to carry the JS code to index page and it fixed my problem. I am aware that this is not the best solution however is 
 the best of my knowledge, in the future I am planning to use ajax js code to fix this.  
